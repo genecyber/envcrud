@@ -9,6 +9,14 @@ Includes small example webserver to demonstrate use via REST
 ## Use
 `npm install envcrud`
 
+
+`npm start`
+```
+> node server.js
+
+Running on http://localhost:3002
+```
+
 ```
 var Env = require("envcrud").Env
 var env = new Env(".env")

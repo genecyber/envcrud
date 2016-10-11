@@ -50,8 +50,6 @@ Env.prototype.AddOrUpdate = function(key, value, cb) {
         }
     }
     var newItem = {key: key, value: value}
-    //if (!Env.envArray) Env.envArray = []
-    //console.log("1", Env.envArray)
     Env.envArray[Env.envArray.length || 0] = newItem
     Env.prototype.save(filename, function(result){
         return cb(result)
