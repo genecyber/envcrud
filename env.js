@@ -6,11 +6,14 @@ var Env = function (file) {
     filename = file
     this.filename = file
 }
+Env.envArray = []
 
-Env.prototype.loadVariables = function(cb) {
-    Env.envArray = []
+Env.prototype.loadVariables = function(cb) {    
     fs.readFile(Env.filename || '.env', (err, data) => {
-        if (err) throw err;
+        if (err) {
+            fs.writeFileSync(Env.filename || '.env', "")
+            data = fs.readFileSync(Env.filename || '.env')
+        }
         var env = data.toString()
         env = env.replace(" = ", "=")
         env = env.split("\n")
@@ -47,7 +50,9 @@ Env.prototype.AddOrUpdate = function(key, value, cb) {
         }
     }
     var newItem = {key: key, value: value}
-    Env.envArray[Env.envArray.length] = newItem
+    //if (!Env.envArray) Env.envArray = []
+    //console.log("1", Env.envArray)
+    Env.envArray[Env.envArray.length || 0] = newItem
     Env.prototype.save(filename, function(result){
         return cb(result)
     })
@@ -76,7 +81,6 @@ Env.prototype.save = function(filename, cb) {
         var rowItem = Env.envArray[variable]
         fileData = fileData + rowItem.key + "=" + rowItem.value + "\n"
     }
-    console.log("filename", filename)
     fs.writeFile(filename, fileData, 
         function(err){
             if (err) {
@@ -89,12 +93,3 @@ Env.prototype.save = function(filename, cb) {
 }
 
 exports.Env = Env
-/******    Use   *******
-
-var env = new Env(".env")
-env.loadVariables(function(envArray){
-    env.AddOrUpdate("BLUEMIX", false, function(variable){
-       
-    })
-})
-*/

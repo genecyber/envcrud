@@ -1,0 +1,79 @@
+{
+	"variables": [],
+	"info": {
+		"name": "envcrud",
+		"_postman_id": "2fb2caa2-c916-688c-a0d2-f15fff3d48c6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Environment Vars",
+			"request": {
+				"url": "http://localhost:3002",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add / Update Environment Var",
+			"request": {
+				"url": "http://localhost:3002",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\": \"foo\", \"value\": \"bar\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Environment Var",
+			"request": {
+				"url": "http://localhost:3002?key=foo",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Environment Var",
+			"request": {
+				"url": "http://localhost:3002",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\": \"foo\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
