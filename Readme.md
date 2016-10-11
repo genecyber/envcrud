@@ -7,7 +7,7 @@ Includes small example webserver to demonstrate use via REST
 - Postman API collection is included: envcrud.postman_collection.json
 
 ## Use
-`npm install envcrud`
+`npm install https://github.com/genecyber/envcrud.git`
 
 
 `npm start`

@@ -1,6 +1,6 @@
 {
   "name": "envcrud",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "env.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/genecyber/envcrud.git"
   },
-  "author": "",
+  "author": "Shannon Code",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/genecyber/envcrud/issues"
